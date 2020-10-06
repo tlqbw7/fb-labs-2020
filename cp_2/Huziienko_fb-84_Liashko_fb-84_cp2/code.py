@@ -72,7 +72,7 @@ def Enc_value(num,T):
 def Letter_counter(text):
     count=Counter(text)
     return count;
-
+#INDEX
 def Index(diction,n):
     i=0
     for key in diction:
@@ -95,42 +95,12 @@ def Print_index(text,n,num):
         print('With key length ',num)
     print('I(Y) = ',index)
     if n==1:
-        M=Open_file("text.txt")
+        M=Open_file("text_c.txt")
         dic_M=Letter_counter(M)
         index_ch=Index_check(dic_M,len(M))
         print('MI(Y) = ',index_ch)    
     print()
     
-    
-
-#main
-#print("TASK 1")
-#print()
-#print("TEXT")
-#T=Open_file("1.txt")
-#print(T)
-#print()
-#for i in range(2,7,1):
-#   if i==6:
-#       Print_encr(14,T)
-#    else:
-#        Print_encr(i,T)
-    
-#print("TASK 2")
-#print()
-#for i in range(1,7):
-#    if i==1 or i==6:
- #       if i==1:
- #           Print_index(T,1,0)
- #       else:
- #           Print_index(Enc_value(14,T),2,14)
- #   else:
-#        Print_index(Enc_value(i,T),2,i)
-        
-print("TASK 3")
-V=Open_file("var7.txt")
-
-
 def Make_Y(text,r):
     l=list()
     n=len(text)
@@ -169,7 +139,7 @@ def Print_index_Y(key,text):
     index_Yi=[]
     index_Yi=Index_Y(Yi)
     Index_middle(index_Yi)
- 
+#STATISTIC 
 def Statistic(list_Y,r):
     cron=list()
     item=0
@@ -189,13 +159,6 @@ def Sum_statistic(list_k):
     for i in range(len(list_k)):
         mid+=list_k[i]
     return mid
-
-def letter(list_encr):
-    for it in range(15):
-        a=Letter_counter(list_encr[it])
-        print(a)
-
-
 
 def Key_find(Yi,dic):
     most_comm=[14,5]

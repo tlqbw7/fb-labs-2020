@@ -130,7 +130,7 @@ def SendKey(Akey,Bkey):
     print'-e1', hex(e1)
     print'-n1', hex(n1)
     k=random.randrange(1,n-1)
-    print
+    print 
     k1=Encrypt(k,Bkey)
     print '-k1', hex(k1)
     S=Sign(k,Akey)[1]
@@ -138,12 +138,13 @@ def SendKey(Akey,Bkey):
     S1=Encrypt(S,Bkey)
     print '-S1', hex(S1)
     return (k1,S1)
+
 ####
 ##
 def ReciveKey(smsg,Bkey,Akey):
     k=Decrypt(smsg[0],Bkey)
-    S=Decrypt(smssg[1],Bkey)
-    ka=Encrypt(S,Akey)
+    S=Decrypt(smsg[1],Bkey)
+    ka=Verify(S,Akey)
     return()
 
 
@@ -192,6 +193,7 @@ print '-e1',hex(B[1][1])
 ## Generate massenge
 MSG=random.randrange(1,A[1][0])
 ## Check Encrypt and Decrypt functions
+
 print("3.Check Encrypt and Decrypt and Sign functions")
 print("FOR A")
 print '-MSG',hex(MSG)
@@ -213,10 +215,15 @@ print '-C', hex(C1)
 print '-M', hex(M1)
 print '-S', hex(S1)
 print
+
 print("4.SendKey")
-
-
-
+sn=int(0xA7F8397F572CD90F1151FC58E0939F5809B6E6D8FB7AC75A3A423CCF259ADC404F5308B8F965BFD1C59391CBAEA90CCB9CF96A10071CED61F394154295DC93A7)
+se=int(0x10001)
+print(sn,se)
+Skey=((0,0,0),(sn,se))
+SendKey(A,Skey)
+k=Decrypt(int(0x50557784547f718b581c096fb1df144f8da0818c861f348e0e6619674f025baaa1e0871911ba589eefb5d36f05339bb63528d7511d5ac9c5802aeb55ea11d71),Skey)
+print "k", hex(k)
 
 
 
